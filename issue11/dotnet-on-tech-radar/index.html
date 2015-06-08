@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../../stylesheets/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../../assets/js/keymaster.min.js"></script>
+
+    <title>P2 Magazine | .NET on the Tech Radar</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url" content="http://localhost:8282/issue11/dotnet-on-tech-radar/" />
+
+    <meta name="prismic-routing-pattern" content="/issue$issueNum/$slug">
+    <meta name="prismic-routing-param" content="slug">
+    <meta name="prismic-routing-param" content="issueNum">
+</head>
+
+<body class="wrapper">
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P97X8B"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P97X8B');</script>
+	<!-- End Google Tag Manager -->
+
+	<nav class="paginate">
+		
+			<a id="prev" class="prev" href="../../issue11/https-and-certs/">◀</a>
+		
+
+		
+			<a id="next" class="next" href="../../issue11/comic/">▶</a>
+		
+		<script>
+		key('left', function() {
+			window.open($("#prev")[0].href, '_self', false);
+		});
+		key('right', function(){
+			window.open($("#next")[0].href, '_self', false);
+        });
+		</script>
+	</nav>
+
+	<div class="container">
+		<section class="page">
+			<nav class="issues">
+				<ul class="clearfix">
+					<li class="active"><a href="">Issue 11, April 2015</a></li>
+					<li class="pull-right">Page 6 / 10</li>
+				</ul>
+			</nav>
+
+			<article>
+				<header>
+					<h1>.NET on the Tech Radar</h1>
+					
+
+					
+						<p class="byline">
+							Works and Music by
+							
+								
+							David Nelson
+						</p>
+					
+				</header>
+				<div class="article-body">
+					<p>Among the many reactions that follow the release of a new ThoughtWorks Tech Radar, there are usually a handful of people that ask why a particular technology or tool is not represented. There are two main reasons for something not to appear on the radar: either ThoughtWorks hasn’t used it enough to form an opinion of it, or we haven’t used it recently. The radar is a snapshot of our opinion on technologies that we are using in a period of time (usually six months or so). So if we aren’t using it, we can’t give our two cents about it.</p><h2><span class="blockquote"><em>&gt;&gt; "Does that mean that ThoughtWorks hasn’t been using .NET?"</em></span></h2><p>For example, when the last radar was published in January 2015, there were a couple of comments highlighting the relative lack of blips related to .NET and other Microsoft technologies. Does that mean that ThoughtWorks hasn’t been using .NET?</p><p>I have been a C# developer for much of my career, as have many other ThoughtWorkers. I pay a lot of attention to what goes on in the .NET world, and what appears on the radar. The Tech Radar has highlighted a number of interesting .NET technologies in the past, including Roslyn, Nancy, and Xamarin, <a href="http://www.thoughtworks.com/radar/a-z#.net">among others</a>. But these appearances do feel less common than those from, for example, Java-based technologies; and they might not feel commensurate with the weight of the .NET framework in the world of software. The .NET Framework is a big and popular platform, and the standard answers of “we haven’t encountered that on a project” or “we didn’t have room for that” don’t feel sufficient. Is there a more satisfying explanation?</p><h2>.NET vs Java</h2><p>The simplest explanation is that the .NET platform is not nearly as popular or ubiquitous as the Java platform. That’s a hard statement for a C# developer like me to swallow, because I know that .NET is superior to Java in just about every way ;-)</p><p>Joking aside, the numbers do bear it out. <a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">The Tiobe index of programming languages</a>, <a href="https://www.openhub.net/languages/compare?commit=Update&l0=csharp&l1=-1&l2=java&l3=-1&l4=-1&measure=commits&percent=true">OpenHub (formerly Ohloh)</a>, and <a href="http://githut.info/">GitHub statistics</a> all point to the reality that Java is roughly 3 to 4 times as popular as .NET (the last two primarily focus on open source projects, which may seem skewed; but that focus is relevant, as we will discuss later). There is a similar trend in ThoughtWorks projects; we encounter Java at our clients significantly more often than we encounter .NET. It makes sense then that the number of interesting developments that we encounter coming from the Java world would be significantly higher than those from the .NET world, based solely on size.</p><h2><span class="blockquote"><em>&gt;&gt; "[We] often eschew tools designed for comfort and ease of use in favor of tools designed for power and control. "</em></span></h2><p>But there is another factor to consider. Why is Java so much more popular than .NET? There may be a number of reasons, but one of them is that Java runs everywhere; C# (until now) has only run on Windows. This has a direct impact on Java’s popularity; many companies will choose it over C# simply because it doesn’t lock them in to the Windows ecosystem*. But this freedom also has an indirect impact on the innovation that happens in the Java community. People that like to build cool new things are often also the kind of people that like to hack on their development environment. They often eschew tools designed for comfort and ease of use in favor of tools designed for power and control. And as such they tend to gravitate towards Linux (and Mac since OS X) and away from Windows (this is true for many ThoughtWorkers as well).</p><p>* .NET can be used on non-Windows environments by using Mono, the open source implementation of the .NET Framework started by Ximian and now largely driven by Xamarin. However, Mono has never achieved broad usage and still remains primarily a niche framework.</p><h3>Java open source</h3><p>In a similar vein, the history of Java - from the platform itself to the major libraries built on top of it - has been one of open source and community-driven solutions to common needs. Contrast this with .NET, whose history has primarily been closed-source, with Microsoft-driven solutions to common needs. This probably does the most to explain why many  ThoughtWorkers will choose Java before .NET. ThoughtWorkers have always loved open source; one of our pillars (or core values) is to “champion software excellence and revolutionize the IT industry”, and it is very difficult to do that from behind closed source. ThoughtWorkers also love a breadth of solutions built for a myriad of scenarios, because that is what we encounter in our wide diversity of projects. We want to pick the solution that fits our particular scenario best. Solutions in .NET have tended to come from Microsoft in the form of one-size-fits-all, leaving less opportunity to find the best fit for our needs.</p><h3>.NET open source</h3><p>But this is where the story gets interesting, because while Java has historically had the lead over .NET in community-driven open source, Microsoft has been showing a long-term trend towards reversing that advantage. Thanks in large part to key influencers in the ASP.NET team, the .NET framework has been progressively more open ever since ASP.NET MVC was “source opened” in 2009. This has culminated in the significant announcements in late 2014 that .NET Core would be fully open source. <strong>Today, the majority of next-generation development for the .NET platform is happening on GitHub (including public issues and pull requests) and taking community contributions.</strong> This is a stunning reversal from the standard operating procedure that earned Microsoft the moniker “The Evil Empire,” in part for its hostility to the open source world. On top of that, .NET Core will be fully cross-platform, running on Linux and Mac with full support from Microsoft. That’s not just an empty promise: you can see the steps already being taken towards full cross-platform implementations in the GitHub repositories of both CoreCLR and CoreFX.</p><h2>The Future of .NET</h2><p>As a C# developer, I am very excited about these developments. There a lot of new opportunities to use what I have always believed is an awesome technology. But even more importantly, I am hopeful that the availability of .NET on new platforms and in new configurations will drive a new wave of innovation. Now is the time for creative problem solvers to take a fresh look at .NET and invest in its future. I am looking forward to the new languages, frameworks, tools, and techniques that will be developed on the .NET framework in the coming years, and the appearance of those innovations on the ThoughtWorks Tech Radar as ThoughtWorkers adopt them to build the next generation of .NET solutions for our clients.</p><p><a href="http://info.thoughtworks.com/P2-Magazine-Subscription.html"><em>Sign up</em></a><em> to receive the latest edition of P2 Magazine.</em></p>
+				</div>
+
+				<aside class="left-column clearfix">
+					<div class="author">
+
+                    
+                        
+                        
+                        <div>
+                            <a href="#">
+                                <img class="author-avatar" src="https://prismic-io.s3.amazonaws.com/p2-magazine/86bb01226afcb6fb7911638fdc4acddc05ec9c39_david_nelson_headshot.jpg" />
+                            </a>
+                            <div>David Nelson</div>
+                            
+                        </div>
+                    
+				</aside>
+			</article>
+		</section>
+	</div>
+
+	<div id="bottom-pages">
+		<nav class="paginate">
+			
+				<a class="prev" href="../../issue11/https-and-certs/">◀</a>
+			
+
+			
+				<a class="next" href="../../issue11/comic/">▶</a>
+			
+		</nav>
+	</div>
+<script>window.routerInfosForFile = {"src":"/article.html","dst":"/issue11/dotnet-on-tech-radar/index.html","args":{"issueNum":"11","slug":"dotnet-on-tech-radar"}};</script>
+</body>
+</html>
