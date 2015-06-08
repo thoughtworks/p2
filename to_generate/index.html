@@ -10,6 +10,7 @@
 [% issues = helpers.sortDocumentsBy(issues.results, 'issue.issue_number') %]
 [% issues = helpers.potato.wrapDocuments(issues) %]
 [% nextIssue = issues[0] %]
+[% latestIssue = issues[issues.length-1] %]
 
 <html>
 <head>
@@ -40,8 +41,8 @@
 	<!-- End Google Tag Manager -->
 
 	<nav class="paginate">
-		[% if (nextIssue) { %]
-			<a id="next" href=".[%= pathTo('issue', { issueNum: helpers.issueNumberPadded(nextIssue) }) %]" class="next">▶</a>
+		[% if (latestIssue) { %]
+			<a id="next" href=".[%= pathTo('issue', { issueNum: helpers.issueNumberPadded(latestIssue) }) %]" class="next">▶</a>
 			<script>
 			key('right', function(){ 
 				window.open($("#next")[0].href, '_self', false);
