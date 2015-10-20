@@ -77,7 +77,7 @@
 
 					[% if (viewModel.authors.length) { %]
 						<p class="byline">
-							Works and Music by
+							Words and Music by
 							[% people = _.map(viewModel.authors, function(group) { %]
 								[% return group.getAuthor().getFullName().asText() %]
 							[% }) %]
