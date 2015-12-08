@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<script type="text/prismic-query" data-binding="issues" data-eager="true">
+[[:d = at(my.issue.issue_number, $issueNum)]]
+</script>
+<script type="text/prismic-query" data-binding="allIssues">
+[[:d = any(document.type, ["issue"])]]
+</script>
+[% viewModel = helpers.issueViewModel(issues, allIssues) %]
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../../stylesheets/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../../assets/js/keymaster.min.js"></script>
+
+    <title>P2 Magazine | [%= viewModel.issue.getTitle() %]</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url" content="[%= urlToHere() %]" />
+
+    <meta name="prismic-routing-pattern" content="/issue$issueNum/index/index">
+    <meta name="prismic-routing-param" content="issueNum">
+</head>
+
+<body class="wrapper">
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P97X8B"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P97X8B');</script>
+	<!-- End Google Tag Manager -->
+	
+	<nav class="paginate">
+		[% if (viewModel.firstArticle) { %]
+			<a id="next" href="../..[%= pathTo('article', helpers.articleURLParams(viewModel.issue, viewModel.firstArticle )) %]" class="next">▶</a>
+			<script>
+			key('right', function(){
+				window.open($("#next")[0].href, '_self', false);
+			});
+			</script>
+		[% } %]
+	</nav>
+
+	<div class="container">
+		<section class="table-of-contents">
+			<header class="cover">
+				[% if (viewModel.issue.getImage()) { %]
+					<img src="[%= viewModel.issue.getImage().main.url %]" style="width:100%;height:100%" />
+				[% } %]
+			</header>
+
+			<div class="logo">
+				<h1 id="title">P2</h1>
+				<h2 id="subtitle">Magazine</h2>
+				<div id="corp"></div>
+			</div>
+
+			<nav class="issues">
+				<ul class="clearfix">
+					<li class="active"><a href="">[%= helpers.issueLabelShort(viewModel.issue) %]</a></li>
+					[% if (viewModel.firstArticle) { %]
+						<li id="start-reading" class="pull-right">
+							<a href="../..[%= pathTo('article', helpers.articleURLParams(viewModel.issue, viewModel.firstArticle )) %]">Start Reading &raquo;</a>
+						</li>
+					[% } %]
+				</ul>
+			</nav>
+
+			<section class="issue-notes">
+				<h1>[%= viewModel.issue.getTitle() %]</h1>
+				[%- viewModel.issue.getBody().asHtml(null, helpers.serializer) %]
+
+				<p>This month we feature:</p>
+
+				<ul>
+					[% _.each(viewModel.articles, function(article) { %]
+						<li><a href="../..[%= pathTo('article', helpers.articleURLParams(viewModel.issue, article)) %]"
+							>[%= article.getTitle().asText() %]
+						</a></li>
+					[% }) %]
+				</ul>
+			</section>
+
+			<section class="issue-notes">
+				<h3>
+					[% if (viewModel.prevIssue) { %]
+						<a href="../..[%= pathTo('issue', { issueNum: helpers.issueNumberPadded(viewModel.prevIssue) }) %]"
+							>&laquo; Last Issue</a>
+					[% } else { %]
+						[% if (viewModel.firstArticle) { %]
+							<a href="../..[%= pathTo('article', helpers.articleURLParams(viewModel.issue, viewModel.firstArticle )) %]"
+								>Read this issue &raquo;</a>
+						[% } %]
+					[% } %]
+
+					[% if (viewModel.extIssue) { %]
+						<a href="../..[%= pathTo('issue', { issueNum: helpers.issueNumberPadded(viewModel.nextIssue) }) %]" class="pull-right"
+							>Jump to next issue &raquo;</a>
+					[% } else { %]
+						[% if (viewModel.firstArticle) { %]
+							<a href="../..[%= pathTo('article', helpers.articleURLParams(viewModel.issue, viewModel.firstArticle )) %]" class="pull-right"
+								>Start Reading &raquo;</a>
+						[% } %]
+					[% } %]
+				</h3>
+			</section>
+		</section>
+	</div>
+
+	<div id="bottom-pages">
+		<nav class="paginate">
+			[% if (viewModel.firstArticle) { %]
+				<a href="../..[%= pathTo('article', helpers.articleURLParams(viewModel.issue, viewModel.firstArticle )) %]" class="next">▶</a>
+			[% } %]
+		</nav>
+	</div>
+</body>
+</html>

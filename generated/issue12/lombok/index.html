@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../../stylesheets/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../../assets/js/keymaster.min.js"></script>
+
+    <title>P2 Magazine | Lombok: A Love/Hate Relationship</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url" content="http://localhost:8282/issue12/lombok/" />
+
+    <meta name="prismic-routing-pattern" content="/issue$issueNum/$slug">
+    <meta name="prismic-routing-param" content="slug">
+    <meta name="prismic-routing-param" content="issueNum">
+</head>
+
+<body class="wrapper">
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P97X8B"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P97X8B');</script>
+	<!-- End Google Tag Manager -->
+
+	<nav class="paginate">
+		
+			<a id="prev" class="prev" href="../../issue12/the-real-role-of-qa/">◀</a>
+		
+
+		
+			<a id="next" class="next" href="../../issue12/treat-devops-stories-like-user-stories/">▶</a>
+		
+		<script>
+		key('left', function() {
+			window.open($("#prev")[0].href, '_self', false);
+		});
+		key('right', function(){
+			window.open($("#next")[0].href, '_self', false);
+        });
+		</script>
+	</nav>
+
+	<div class="container">
+		<section class="page">
+			<nav class="issues">
+				<ul class="clearfix">
+					<li class="active"><a href="../index/">Issue 12, December 2015</a></li>
+					<li class="pull-right">Page 4 / 9</li>
+				</ul>
+			</nav>
+
+			<article>
+				<header>
+					<h1>Lombok: A Love/Hate Relationship</h1>
+					
+						<h3>Uncovering the good and bad of Lombok.</h3>
+					
+
+					
+						<p class="byline">
+							Words and Music by
+							
+								
+							Wendy Istanavic
+						</p>
+					
+				</header>
+				<div class="article-body">
+					<p>At the most recent ThoughtWorks Tech Radar creation session the following question was raised, should Lombok be recommended for Java projects? Lombok is a Java library meant to simplify the development of Java code writing by adding 'handlers' that know how to build and compile simple, boilerplate-free, not-quite-java code. The proponents of recommending it focused on the time it can save during development and the antagonists focused on how it can make it easier to write bad Java code. Interestingly, both sides have good points that I'm going to delve into.</p><h3>Why Lombok?</h3><p>One thing developers using Java notice, after working in dynamic languages, is that it is verbose.</p><p><em>verbose: characterized by the use of many or too many words; wordy</em></p><p>To avoid writing so much code, they look to tools like Lombok to provide the boilerplate code that you get tired of writing (and reading). But there are many arguments against it’s use. </p><h3>Breaking the rules</h3><p>Unfortunately, the Java compilation process does not provide this tooling out of the box. It wasn’t until Java 6 and JSR 269 that the specification for annotation processing was defined. But even with that, you can only generate new code or documentation, since the specification does not publicly allow you to modify the abstract syntax tree. Lombok gets around this with a hack:</p><p><em>Using </em><em><strong>non-public API</strong></em><em>. Presumptuous </em><em><strong>casting</strong></em><em> (knowing that an annotation processor running in javac will get an instance of JavacAnnotationProcessor, which is the </em><em><strong>internal implementation</strong></em><em> of AnnotationProcessor (an interface), which so happens to have a couple of extra methods that are used to </em><em><strong>get at the live AST</strong></em><em>).</em> 	<br>—Reiner Zwitserloot, <a href="http://jnb.ociweb.com/jnb/jnbJan2010.html"><em>http://jnb.ociweb.com/jnb/jnbJan2010.html</em></a></p><p>This is one reason that some argue against using Lombok, noting that it is breaking the rules and raises concerns that your annotations won’t work with future versions of Java and IDEs. While this concern may seem legitimate, it has worked with over three versions of Java and major IDEs have been quick to release new plugins when changes are made in Lombok.</p><h3>Developer laziness</h3><p>Another argument raised against incorporating Lombok into a Java code base is that it breeds laziness by making it easier to write bad code. However, let’s face it – developers are lazy!</p><blockquote><p>“Developers are lazy!”</p></blockquote><p>We use IDEs to allow us to type as little as possible; we aggressively look for and include open source solutions to common problems to avoid having to solve them again. There is nothing wrong with that – it’s what I consider to be “good lazy”. Of course conversely there is a “bad lazy”.  For example, we break encapsulation by making things public or putting getters and setters on everything instead of carefully considering what our domain model should be and how the interactions it highlights can be used to elicit better code.</p><p>In choosing the pieces of Lombok to use and those to avoid we can support the good side of our laziness and shy away from the bad.</p><h4>Good lazy: Features I “Love”</h4><ul><li><strong>@EqualsAndHashCode</strong> avoids boilerplate code and is better than using IDE generated methods as it stays in sync with your class if the attributes change.</li><li><strong>@ToString</strong> also stays in sync and makes it much easier to figure out why your tests are failing.</li><li><strong>@AllArgsConstructor, @NoArgsConstructor, @RequiredArgsConstructor</strong> make it very easy to enforce the creation of only fully hydrated objects which limit the number NullPointerExceptions you have to chase down. A good argument against them is they make the constructors dependent on the order the attributes appear in your class definition. Also, if you have lots of primitive variables e.g. string or integer it can lead to bugs that are hard to find. For example, if you have a method taking first, middle, and last name all as strings, it is very easy to accidentally call it with the parameters out of order, perhaps last, first, middle. I prefer to use them and keep the number of attributes in each class small, working towards the single responsibility principle. In the example code below(Fig 1), @RequiredArgsConstructor ensures that legallyChangeNameTo() can not be called without the String newLastName argument.</li><li><strong>@NonNull</strong> aids in eliminating those NullPointerExceptions as you can now get an IllegalArgumentException when you try to instantiate the class or call a method with parameters that shouldn’t be nullable.</li><li><strong>@Logging</strong> keeps the log messages in sync with the class name, so you can change it without needing to remember to change the logging. In figure 1, @Log will log the value of message alongside the classname generating the output shown in figure 2.</li></ul><p><script src="https://gist.github.com/zhangkf/27c1c11d4d653c51fac1.js"></script><span class="snippet">Figure 1: Example usage of @RequiredArgsConstructor, @Log, @NonNull, @Cleanup</span></p><p></p><p><script src="https://gist.github.com/zhangkf/6f7377a3621e040d91e6.js"></script><span class="snippet">Figure 2: Output of @Log statement.</span></p><ul><li><strong>@CleanUp</strong> eliminates the need for the plethora of try/catch blocks that can often be found at the end of methods using lots of external resources. In figure 3 we see the try/catch block that would be required if the @Cleanup annotation was not used.</li></ul><p><script src="https://gist.github.com/zhangkf/77c382217bb4872f6e32.js"></script><span class="snippet">Figure 3: @Cleanup eliminates the need for a try/catch block.</span></p><ul><li><strong>val</strong> eliminates the need to explicitly type a local variable when the type is obvious from the right hand side of an expression and thereby eliminates duplicate logic.</li><li><strong>@Synchronized</strong> locks on a private variable $lock which makes it much harder to have side effects and race conditions. But before using this you should aggressively question the need for the synchronization and try to eliminate that first.</li></ul><p><em>“Locking on this or your own class object can have unfortunate side-effects, as other code not under your control can lock on these objects as well, which can cause race conditions and other nasty threading-related bugs.”<br>—</em><a href="https://projectlombok.org/features/Synchronized.html"><em>https://projectlombok.org/features/Synchronized.html</em></a></p><h4>Bad lazy: Features I “Hate”</h4><ul><li><strong>@Getter/@Setter</strong> break encapsulation. Don’t use them, period.</li></ul><p><em>Every object has a </em><em><strong>well-defined interface</strong></em><em> that specifies the</em><em><strong> behavior</strong></em><em> of the object in a manner that is </em><em><strong>independent of its implementation</strong></em><em>. […]<br>No other object can rely on how another object implements its services. This ability of objects to hi</em><em><strong>de internal structure</strong></em><em>, thereby defining services independent of implementation, is called </em><em><strong>encapsulation</strong></em><em>.  <br>—</em><a href="http://c2.com/cgi/wiki?NobodyAgreesOnWhatOoIs"><em>http://c2.com/cgi/wiki?NobodyAgreesOnWhatOoIs</em></a></p><p>That is not to say there aren’t places where encapsulation needs to be broken. But it’s important to be cognizant that you are doing it and have a good reason for doing so.</p><ul><li><strong>@Value</strong> sounds pretty good at first since it creates immutable classes by making them final, with all non-nullable private final attributes, providing an all args constructor along with toString, equals, and hashCode. However, it tacks on getters for everything. Thus using @Value at the top of a class is equivalent to adding all of the annotations, as well as the private final notations shown below (Figure 4).</li></ul><p><script src="https://gist.github.com/jonny/bf7a9703fee04ebcf212.js"></script><span class="snippet">Figure 4: @Value is equivalent to @Getter, @AllArgsContructor, @EqualsAndHashCode &amp; @ToString</span></p><ul><li><strong>@Data</strong> is worse. While it creates a required args constructor and the toString, equals, and hashCode methods that we like to have, it doesn’t lock down the class as final. And it creates getters for everything and setters for all non-final fields.</li><li><strong>@Builder</strong> is another one that seems like a good idea at first, because builders are great for creating expressive tests. In figure 5, we see a test written without the aid of builders. Figure 6 shows how the call to create the expected result using the withLastName clearly calls out that we care about the last name for this test, letting the other values be set to anything that is valid.</li></ul><p><script src="https://gist.github.com/zhangkf/c296695c3185825fe246.js"></script><span class="snippet">Figure 5: Class without builder<br></span></p><p><script src="https://gist.github.com/zhangkf/79fb77d7110964317a3e.js"></script><span class="snippet">Figure 6: Class with builder</span></p><p>The problem is that it does not provide a way to set the default values that make builders so useful and it creates the builders as part of your production code by placing them in the src tree rather than in the test tree.</p><ul><li><strong>@Accessor</strong> is an experimental feature that adds both <strong>@Getter</strong> and <strong>@Setter</strong> with one annotation, but it is no better than using the two annotations it replaces.</li><li><strong>@Wither</strong> is ok as it lets you create a new instance of an object with a changed value which is much better than using a setter. However, this is better supported by methods in a class that indicate the intent of making such a new instance. e.g. the legallyChangeName to method in Figure 5.</li><li><strong>@UtilityClass</strong> simply makes the methods of a class static, which is generally not desirable.</li></ul><h3>The Jury is Out</h3><ul><li><strong>@SneakyThrows</strong> is a tough one to categorize. It lets you throw a checked exception without a throws clause, which depending on which side of the checked/unchecked exception fence you reside will either have you singing hallelujah or tearing your hair out. The biggest downside that I see, since I tend to go with the flow of my teams on the checked/unchecked decision, is that once you throw something this way you can no longer catch it explicitly.</li></ul><h3>Experimental Jealousy: Features I Hope Stick Around</h3><p>A couple of the features in the “hate” are experimental and thus they are not guaranteed to stick around in future Lombok releases. However there are a few experimental features that I hope will stand the test of time.</p><ul><li><strong>onConstructor</strong> lets you add an annotation to a constructor that is created by Lombok, which is absolutely needed if you want Lombok to play nicely with Spring. In figure 7, the constructor that is created will be annotated with @Autowired, and thus will automatically get hooked up by Spring.</li></ul><p><script src="https://gist.github.com/zhangkf/e514ac6f34437746ff4a.js"></script><span class="snippet">Figure 7: onConstructor with @Autowired</span></p><ul><li><strong>@FieldDefaults</strong> create a great mind shift in how one thinks about code. With them you can make all fields private final with one line of code. Then, when something needs to be exposed you are forced to add code to loosen the controls by adding specific annotations such as <strong>@NotFinal</strong> and <strong>@PackagePrivate</strong> adding these to individual fields forces you to think about each one you expose and determine if there is a way to achieve the same goal while keeping the field locked down.</li><li><strong>@ExtensionMethod</strong> lets you effectively extend classes such as String that can make your code more readable as can be seen in figure 8. The S class is not shown, but you can assume that it provides a reverse method that returns another S class with the reversed String from the given instance.</li></ul><p><script src="https://gist.github.com/zhangkf/74ba31b19452274c8365.js"></script><span class="snippet">Figure 8: @Extension method</span></p><p>While there are plenty of things that should be avoided in Lombok, there are enough gems to warrant using it with care. As with any tool, you need to understand the good and the bad to ensure the code that you write is cleaner with it than without it.</p><p><a href="http://info.thoughtworks.com/P2-Magazine-Subscription.html"><em>Sign up</em></a><em> to receive the latest edition of P2 Magazine.</em></p>
+				</div>
+
+				<aside class="left-column clearfix">
+					<div class="author">
+
+                    
+                        
+                        
+                        <div>
+                            <a href="#">
+                                <img class="author-avatar" src="https://prismic-io.s3.amazonaws.com/p2-magazine/10f65504024b933f50fb757569868f55c38e9e82_wendy.jpg" />
+                            </a>
+                            <div>Wendy Istanavic</div>
+                            
+                                <a href="http://twitter.com/jemappellewendy">
+                                    @jemappellewendy
+                                </a>
+                            
+                        </div>
+                    
+				</aside>
+			</article>
+		</section>
+	</div>
+
+	<div id="bottom-pages">
+		<nav class="paginate">
+			
+				<a class="prev" href="../../issue12/the-real-role-of-qa/">◀</a>
+			
+
+			
+				<a class="next" href="../../issue12/treat-devops-stories-like-user-stories/">▶</a>
+			
+		</nav>
+	</div>
+<script>window.routerInfosForFile = {"src":"/article.html","dst":"/issue12/lombok/index.html","args":{"issueNum":"12","slug":"lombok"}};</script>
+</body>
+</html>
