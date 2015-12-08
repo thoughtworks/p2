@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../../stylesheets/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../../assets/js/keymaster.min.js"></script>
+
+    <title>P2 Magazine | Gaming Your Security</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url" content="http://localhost:8282/issue12/gaming-your-security/" />
+
+    <meta name="prismic-routing-pattern" content="/issue$issueNum/$slug">
+    <meta name="prismic-routing-param" content="slug">
+    <meta name="prismic-routing-param" content="issueNum">
+</head>
+
+<body class="wrapper">
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P97X8B"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P97X8B');</script>
+	<!-- End Google Tag Manager -->
+
+	<nav class="paginate">
+		
+			<a id="prev" class="prev" href="../../issue12/the-real-role-of-qa/">◀</a>
+		
+
+		
+			<a id="next" class="next" href="../../issue12/treat-devops-stories-like-user-stories/">▶</a>
+		
+		<script>
+		key('left', function() {
+			window.open($("#prev")[0].href, '_self', false);
+		});
+		key('right', function(){
+			window.open($("#next")[0].href, '_self', false);
+        });
+		</script>
+	</nav>
+
+	<div class="container">
+		<section class="page">
+			<nav class="issues">
+				<ul class="clearfix">
+					<li class="active"><a href="../index/">Issue 12, December 2015</a></li>
+					<li class="pull-right">Page 4 / 10</li>
+				</ul>
+			</nav>
+
+			<article>
+				<header>
+					<h1>Gaming Your Security</h1>
+					
+						<h3>Getting started with security games</h3>
+					
+
+					
+						<p class="byline">
+							Words and Music by
+							
+								
+							Rosalie Tolentino
+						</p>
+					
+				</header>
+				<div class="article-body">
+					<p><em>You enter the world beautifully new with your wooden club and shield combo. Your stats are relatively even. You look around at a vast plain that embodies the beginning of your journey to become the most powerful warrior that this server has ever seen.</em></p><p><em>And then the bears attack.</em></p><p><em>You kill the first couple, but more continue to appear. Two become four, four become eight, and the waves increase at a heart-ratcheting pace. Working toward exhaustion, you spot a bottle of healing wine nearby and down it for a little support. Unfortunately, the bears don't stop. After 90 seconds of key-beating survival, the dead bears around you suddenly revive and pull out AK-47s to obliterate your existence.</em></p><p><em>At this point you either flip up your keyboard in disgust or you play again and realize that the healing wine gives your character a power-level variable that can be manipulated from 20 to 100, making you invincible to the bear shenanigans. With the hacked wine power-up, two minutes fly by and a chest appears! It reveals a flag and maybe a treasure for you, and then the challenge is over. Congratulations.</em></p><p>The above scenario is an abridged, dramatized rendition of the Massively Multiplayer Online Role-Playing Game (MMORPG) <strong>Pwn Adventure</strong>. For players of Pwn Adventure, hacking is the game. "The concept of Pwn Adventure is to look at the common security flaws that games have and make a challenge out of those flaws," says co-creator and former Raytheon security researcher Wiens Wagner (Wired 2015). </p><p>Identifying flaws in your software architecture is not an optional activity. Pwn Adventure is one type of security game that is highly realistic. “By creating a game that is intentionally flawed, we can create an example for developers of what not to do” (<a href="http://pwnadventure.com/">pwnadventure.com</a>, 2015).</p><p>Security games, unlike reading a textbook or online resources, add an element of fun to your learning. There is a plethora of security games out there that range from simple, high-level board games like CTRL-ALT-HACK to the highly technical Elevation of Privilege (EoP), which forces players to undermine the integrity of their own software. The range can make it difficult to know which will be useful for you to explore and, equally important, which will be fun. </p><h3>Where do I start?</h3><p>The main difficulty around playing these games is that they are not clearly categorized into beginner, intermediate, and advanced levels. The advanced games, while rewarding, will take more than one sitting to solve, and they require you to be familiar with the context of the game e.g. using the "strings" command to enumerate readable text in a file.</p><p>I created the diagram in Figure 1 to help you identify where to start, by placing many existing games along two axes. The Y axis indicates an increasing level of technical and contextual knowledge required to play. The X axis indicates how likely you are to spot the bugs featured in these games in the wild.</p><p class="block-img"><img src="https://prismic-io.s3.amazonaws.com/p2-magazine/a5eb87b0ec5fedacc13a93856d1c1505575c31dd_gaming-security-1.001.jpeg" alt=""></p><p>Figure 1: Graphical guide to where to start</p><p></p><h3>Measuring Technical Context</h3><p>To use the graph in figure 1, you need a way to measure your own skills. Let’s start with the Y axis, technical context.  Two factors go into having a high technical context score: Computer Context and Highjack Knowhow</p><h4>Computer Context</h4><p>Give yourself a gut rating based how much you know about the way computers work, where 1 is low and 5 is high:</p><ul><li><strong>Low</strong> - You have mostly interacted with your computer at the application level, such as using a browser, programming in a non-assembly language, and using simple commands in bash. </li><li><strong>High</strong> - You understand the details of TCP, IPv4 and 6, SMTP, SMB, DNS, and other protocols or maybe you have an in-depth understanding of the reasons behind the creation of different cryptographic systems. You might have written a featureful shell or an emulator to a MIPS machine. Or built a URL parser and thoroughly understand how a browser works. </li></ul><h4>Highjack Knowhow</h4><p>Next, measure yourself on how good you are at forcing systems to behave in ways the creator never intended. The more you can do this the more able you will enjoy games with a realistic context:</p><ul><li><strong>Low</strong> - You have never tried to test the limits of the programs you use.</li><li><strong>High</strong> - You are not only able to discover weird software behavior, but you’re also sensitive to the signs that can lead to compromise.</li></ul><h3>Realistic Occurence</h3><p>One of my key learnings from playing security games is that issues are often in the details of how different systems work together, especially in how they can undermine one another. It is often not directly about code but instead about the integration of bits fuzzing the line between data and executable instructions, or creating anomalies and loopholes in protocols. As you move up the X-axis you will find your understanding and ability to identify bugs in real world systems increase.</p><h3>Play time</h3><p>Taking the two scores from the technical context categories and averaging them out should give you a good starting place. Scoring high could mean that you will enjoy the <strong>Vulnhub</strong>, a resource that provides intermediate to advanced security games for people who already understand the basics e.g <strong>Overthewire’s</strong> advanced games like Narnia, or DEFCON’s <strong>Capture The Flag</strong> challenges.</p><p>Scoring lower means that you might need to start with games that require a lower barrier to entry in the technical context. I recommended starting from easier games so that you can build up to the other challenges. It’s just not fun to bang your head against a wall when someone could have told you to use “strings” or nmap for help. Overthewire wargames like <strong>Bandit</strong> do a great job of providing building blocks to intermediate games, and they don’t require you to set up the game environment. Similarly, <strong>Cryptopals</strong> has you step through a progressional journey toward a practical understanding of how cryptography is attacked. The <strong>XSS-game</strong> (Xss-game.appspot.com) is another fun place to start if you already have experience in web applications and you want to understand a common vulnerability like cross-site scripting.</p><p>If you are an intermediate player, you can start somewhere in the center and then scale up or down depending on how much you are learning or having fun. </p><p>Lastly, it’s important to keep in mind that this is about fun, not ego. It’s easy to overestimate our own abilities. Using the beginner games to master the basics will make it easier for you to progress through more advanced games. I often see people start at the beginner level, finish many challenges and quickly increase their expertise, while others expect themselves to take on advanced problems first, and then, after a few days or a week of struggling, quit. </p><p>Stay on the lookout! <strong>New Capture the Flag</strong> challenges are added to public archives every few months. </p><p>Now that you’ve got a decent mapping of where you are to what kinds of games exist out there, you’re set to explore! Be sure to take your friends. You’ll level up faster and laugh harder together.</p><p><em>Ready, Player 1? </em></p><p>Sources</p><p>Wired. “<a href="https://www.wired.com/2015/04/multiplayer-hack-to-win">You have to Hack this Massively Multiplayer Game to Beat It</a>”   (April 2015)</p><p>OWASP. <a href="https://www.owasp.org/index.php/OWASP_Cornucopia">“OWASP Cornucopia”</a>  (June 2015)</p><p>Microsoft. <a href="http://www.microsoft.com/en-us/sdl/adopt/eop.aspx">“Elevation of Privilege (EOP) Card Game”</a>   (2015)</p><p>Van Acker, Steven. <a href="https://overthewire.org/">“OverTheWire: Wargames”</a> </p><p>g0tmi1k, NullMode. <a href="https://vulnhub.com/">“VulnHub” </a> (2015)</p><p>Ptacek, Thomas. Sean Devlin. Alex Balducci. Marcin Wielgoszewski. <a href="http://cryptopals.com/">“Cryptopals” </a> </p><p>Google. <a href="https://xss-game.appspot.com/">“XSS Game” </a></p><p>University of Washington. <a href="http://www.controlalthack.com/">“CTRL-ALT-HACK”</a>  (2012)</p><p>OWASP. <a href="https://www.owasp.org/index.php/Category:OWASP_WebGoat_Project">“OWASP Webgoat Project” </a> (May 2015)</p><p><a href="http://info.thoughtworks.com/P2-Magazine-Subscription.html"><em>Sign up</em></a><em> to receive the latest edition of P2 Magazine.</em></p>
+				</div>
+
+				<aside class="left-column clearfix">
+					<div class="author">
+
+                    
+                        
+                        
+                        <div>
+                            <a href="#">
+                                <img class="author-avatar" src="https://prismic-io.s3.amazonaws.com/p2-magazine/26ba3341e87c17be711ed0ae623461f48572297f_rosalie.jpg" />
+                            </a>
+                            <div>Rosalie Tolentino</div>
+                            
+                                <a href="http://twitter.com/rosatolen">
+                                    @rosatolen
+                                </a>
+                            
+                        </div>
+                    
+				</aside>
+			</article>
+		</section>
+	</div>
+
+	<div id="bottom-pages">
+		<nav class="paginate">
+			
+				<a class="prev" href="../../issue12/the-real-role-of-qa/">◀</a>
+			
+
+			
+				<a class="next" href="../../issue12/treat-devops-stories-like-user-stories/">▶</a>
+			
+		</nav>
+	</div>
+<script>window.routerInfosForFile = {"src":"/article.html","dst":"/issue12/gaming-your-security/index.html","args":{"issueNum":"12","slug":"gaming-your-security"}};</script>
+</body>
+</html>

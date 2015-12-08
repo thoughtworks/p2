@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../../stylesheets/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../../assets/js/keymaster.min.js"></script>
+
+    <title>P2 Magazine | IoT: First the Hype, Then the Plumbing</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url" content="http://localhost:8282/issue12/iot/" />
+
+    <meta name="prismic-routing-pattern" content="/issue$issueNum/$slug">
+    <meta name="prismic-routing-param" content="slug">
+    <meta name="prismic-routing-param" content="issueNum">
+</head>
+
+<body class="wrapper">
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P97X8B"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P97X8B');</script>
+	<!-- End Google Tag Manager -->
+
+	<nav class="paginate">
+		
+			<a id="prev" class="prev" href="../../issue12/bdd-dont/">◀</a>
+		
+
+		
+			<a id="next" class="next" href="../../issue12/the-real-role-of-qa/">▶</a>
+		
+		<script>
+		key('left', function() {
+			window.open($("#prev")[0].href, '_self', false);
+		});
+		key('right', function(){
+			window.open($("#next")[0].href, '_self', false);
+        });
+		</script>
+	</nav>
+
+	<div class="container">
+		<section class="page">
+			<nav class="issues">
+				<ul class="clearfix">
+					<li class="active"><a href="../index/">Issue 12, December 2015</a></li>
+					<li class="pull-right">Page 2 / 9</li>
+				</ul>
+			</nav>
+
+			<article>
+				<header>
+					<h1>IoT: First the Hype, Then the Plumbing</h1>
+					
+						<h3>Uncovering the reality of IoT</h3>
+					
+
+					
+						<p class="byline">
+							Words and Music by
+							
+								
+							Mat Henshall
+						</p>
+					
+				</header>
+				<div class="article-body">
+					<p>There is much hype around the Internet of Things (the linking of machines and sensors to the Internet), but is it deserved? At its core, IoT is just the Internet, with things on it. But these things are different from the computers we are used to dealing with. In short, the IoT is the same but different. </p><h3>Old news?</h3><p>In 1982, Carnegie Mellon University students Mike Kazar, David Nichols, John Zsarnay and Ivor Durham wired up a soda vending machine so that they could use the finger command-line utility to see the availability and “coldness” of the soda cans in each dispensing column remotely via the Internet (then known as ARPANET). This was quite possibly the first “thing on the Internet.” Since then, millions of devices have been happily created and connected to digital networks without fanfare or hype.</p><p>So why is the “Internet of Things” gaining attention now, given that it’s not a major technological breakthrough? The IoT’s  relevance today comes from the convergence of several trends:</p><h4>1. Moore’s Law</h4><p>Perhaps the most important trend is the continued march of "Moore's Law" (that the number of transistors in an integrated circuit doubles every two years) along with other hardware and manufacturing innovations that result in devices that are getting cheaper, use less energy and are more powerful.</p><h4>2. Operating Systems</h4><p>Cheaper, faster hardware is not the only enabler. Cheaper commodity software in the form of open source industrial-strength operating systems (OSs) such as Linux or RTOS (an open source realtime OS) make it trivial to add networking (via  Wi-Fi or other radio protocol), and the needed software communication stack to a device.</p><h4>3. Internet</h4><p>And of course, there’s the Internet itself. Thanks to global adoption of open standards for how devices communicate on the Internet using agreed-on protocols—physical, link, network, transport and higher—a device can be assured once connected, and other agents on the network can communicate with it.</p><h4>Easy peasy?</h4><p>Well that’s it, then. Add Linux, Wi-Fi and/or an Ethernet port, and I have my connected device! Well, yes and no. </p><h3>Standard architectures won’t cut it</h3><h4>Device-to-device communications</h4><p>Most of the higher-level protocols that we all love and agree to use—such as HTTP—were conceived for, and are optimized for, the needs of machine, human or unconstrained server-to-server communication. Although there’s an element of human-to-machine communication in IoT and connected devices, much of the value of a connected device comes from the machine or sensor communicating directly with services and other devices. For example, let’s take a hypothetical warehouse system, as shown below. A network of temperature and humidity sensors sends information directly to a heating, ventilation and air conditioning (HVAC) system to optimize temperature and air flow in a warehouse. As stock is moved around, warehouse robots can consolidate items that need chilling into smaller areas, and the HVAC system is instructed accordingly. No humans needed. </p><p class="block-img"><img src="https://prismic-io.s3.amazonaws.com/p2-magazine/715c720bf48e46c2c283bc71a0efd83da6a4372f_iot.png" alt=""></p><h4>Different design goals</h4><p>The huge variety in size, battery life, deployment, form factor and functionality add wrinkles to an IoT system architecture. Take, for example, a system that has several simple temperature sensors. Each sensor needs to run on a small coin cell for perhaps five years. Being permanently on a Wi-Fi network and being able to respond to an ad-hoc HTTP GET request would drain the battery in minutes. What if it “went to sleep,” woke up every few minutes and POSTed an HTTP request to a list of interested devices? Even the most efficient ultra-low Wi-Fi device takes a minimum of 60ms to reconnect to a Wi-Fi access point. In the world of constrained devices, time is money, or at least battery drain. Given that an HTTP request is actually made up of many lower-level packets negotiating a TCP/IP session and then sending the data, this dictates that Wi-Fi and HTTP POST are not going to cut it. So much for our beloved RESTful interfaces. </p><h4>New(er) protocols and standards</h4><p>The solution is to start looking at lower-level protocols that work at the packet level, because these are smaller and require less power to send over the network. Several organizations and consortiums are working on defining standards for not only how to get data from a data producer to a data consumer, but also how to discover and provision devices and, perhaps more important, interoperate. In the world of human/machine interactions on the Internet, any web browser can go to any web server that supports HTTP and returns HTML. We need the same for devices. A device from one manufacturer needs to be able to send temperature events to, for example, an air-conditioning system from another. </p><blockquote><p>“interoperability, it’s a large bowl of alphabet soup”</p></blockquote><p>Although a great deal of work is under way in the interoperability space, it’s a large bowl of alphabet soup, with different emphases driven by industry and/or architectural goals. In the consumer electronic space, the Allseen Alliance (driven by companies such as Qualcomm, LG, Microsoft and Sony) and the Open Interconnect Consortium (driven by Intel, Cisco and Samsung) are both gaining traction, along with Wemo from Belkin (based on Universal Plug and Play). There’s also Google Thread and Apple Homekit. And the Eclipse Foundation is doing good work building open source implementations and frameworks for <a href="http://iot.eclipse.org">IoT open standards</a>. The list of organisations jumping on the bandwagon continues to grow.</p><h4>Mesh Networks</h4><p>Making this all a lot more complex is that many connected devices don't use Ethernet or Wi-Fi as their underlying physical layer, and for good reason. Take the temperature sensor above. Wi-Fi is a poor choice because it’s not designed in terms of topology or specifications to be a low-power physical transport. Wi-Fi is generally deployed as a star-and-hub style network where a number of stations all connect to a single access point on specific radio bands. The range required for a device to reach the access point means that both the hub and the radio of the device must be relatively high-powered. And it isn't just power that makes Wi-Fi a poor choice. Radio is unpredictable because it’s affected by interference, reflection and refraction. So a Wi-Fi connection that has worked perfectly for months can suddenly become unreliable because someone next door started using an old microwave (true story). If your phone has a bad connection, moving it six inches can suddenly improve it. A fixed connected device might not have that luxury. </p><blockquote><p>“While things are still in such a state of flux, the best approach to hype is not to get suckered in by it.”</p></blockquote><p>Often the solution is to deploy “mesh” networks whereby connected devices all communicate with their neighbours and messages hop from one node to another. This allows for redundancy in case one node fails or is temporarily out of reach. This topography often greatly reduces the individual device power requirements. Typically one or more “gateway” devices connects the mesh to the Internet. Work in this area is continuing; well-known implementations and standards include Zigbee and Zwave. There is great work being done in Bluetooth mesh protocols and 6LowPan. Google is also driving a set of protocols, called Thread, targeted at the connected home and built on top of 6LowPan and other existing standards.</p><h4>Messaging</h4><p>Most connected devices will need to communicate with a service in the cloud, or allow a smartphone to control it remotely for the full value to be realized. Sometimes this is through a local gateway, sometimes directly from the device. Many systems have found that HTTP is a poor mechanism and that an event “push” model is often more appropriate. Alternatives that are beginning to be used include MQTT (a lightweight pub/sub protocol), as well as several implementations on top of XMPP (an XML-based protocol). CoAP (a UDP-based protocol) is beginning to attract attention. CoAP combines some features of a RESTful interface with low overhead and the Observer Pattern. However, for those of us interested in the (re)decentralization of the Internet, perhaps the most interesting messaging mechanism that is beginning to show up is the use of <a href="http://www.telehash.org">TeleHash</a>, which provides a decentralized, secure and private messaging infrastructure. </p><h4>Troubleshooting</h4><p>Finally, how to troubleshoot IoT architectures is an often-overlooked aspect. We take for granted the many tools used to debug and troubleshoot the applications and devices that connect as PCs, smartphones, tablets and servers. The range of tools and the number of different manufacturers involved in an IoT implementation bring their own set of complications that must be factored into the implementation choices.</p><h3>Putting it all together</h3><p>So is all the hype deserved? It doesn't really matter. While things are still in such a state of flux, the best approach to hype is not to get suckered in by it.</p><p>Instead, as I have outlined, in a number of ways the Internet of Things is the same but different. The key to operating in the IoT space is understanding the implications of these similarities and differences for your architecture, your solution and your business.</p><p>What does this all mean to anyone implementing an IoT solution? The choices and alternatives are not clear-cut. The focus should be on clearly understanding the goals and requirements of your connected architecture. However, many of your technical choices will be driven by the manufacturer of the connected devices you choose. When looking at more than a single point solution, one of the key considerations needs to be how easy the system architecture is to troubleshoot, and how security, privacy and third-party dependencies are managed. We are in an exciting age. Connected devices are getting smarter and more autonomous, and the required standards for interoperability and robust implementations are coming. </p><p><a href="http://info.thoughtworks.com/P2-Magazine-Subscription.html"><em>Sign up</em></a><em> to receive the latest edition of P2 Magazine.</em></p>
+				</div>
+
+				<aside class="left-column clearfix">
+					<div class="author">
+
+                    
+                        
+                        
+                        <div>
+                            <a href="#">
+                                <img class="author-avatar" src="https://prismic-io.s3.amazonaws.com/p2-magazine/79131472ec9cdeec2bf569f73018937cedf220e3_img_0004.jpg" />
+                            </a>
+                            <div>Mat Henshall</div>
+                            
+                                <a href="http://twitter.com/mathenshall">
+                                    @mathenshall
+                                </a>
+                            
+                        </div>
+                    
+				</aside>
+			</article>
+		</section>
+	</div>
+
+	<div id="bottom-pages">
+		<nav class="paginate">
+			
+				<a class="prev" href="../../issue12/bdd-dont/">◀</a>
+			
+
+			
+				<a class="next" href="../../issue12/the-real-role-of-qa/">▶</a>
+			
+		</nav>
+	</div>
+<script>window.routerInfosForFile = {"src":"/article.html","dst":"/issue12/iot/index.html","args":{"issueNum":"12","slug":"iot"}};</script>
+</body>
+</html>

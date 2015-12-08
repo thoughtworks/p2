@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../../stylesheets/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../../assets/js/keymaster.min.js"></script>
+
+    <title>P2 Magazine | Remove “In QA”</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url" content="http://localhost:8282/issue12/remove-in-qa/" />
+
+    <meta name="prismic-routing-pattern" content="/issue$issueNum/$slug">
+    <meta name="prismic-routing-param" content="slug">
+    <meta name="prismic-routing-param" content="issueNum">
+</head>
+
+<body class="wrapper">
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P97X8B"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P97X8B');</script>
+	<!-- End Google Tag Manager -->
+
+	<nav class="paginate">
+		
+			<a id="prev" class="prev" href="../../issue12/iot/">◀</a>
+		
+
+		
+			<a id="next" class="next" href="../../issue12/gaming-your-security/">▶</a>
+		
+		<script>
+		key('left', function() {
+			window.open($("#prev")[0].href, '_self', false);
+		});
+		key('right', function(){
+			window.open($("#next")[0].href, '_self', false);
+        });
+		</script>
+	</nav>
+
+	<div class="container">
+		<section class="page">
+			<nav class="issues">
+				<ul class="clearfix">
+					<li class="active"><a href="../index/">Issue 12, October 2015</a></li>
+					<li class="pull-right">Page 3 / 10</li>
+				</ul>
+			</nav>
+
+			<article>
+				<header>
+					<h1>Remove “In QA”</h1>
+					
+
+					
+						<p class="byline">
+							Words and Music by
+							
+								
+							Luiza Nunes
+						</p>
+					
+				</header>
+				<div class="article-body">
+					<p>Imagine the following situation: Your company is cutting costs, and in few weeks there will be no QAs in your team. What would the development team do to manage and ensure quality over the development cycle to create a quality product that satisfies user needs?</p><p>There are a lot of interesting discussions regarding what a QA is, but in fact the conversation needs to go far beyond that.  </p><h3>Dev Done or QA Done?</h3><p>In an agile project, your team is often composed of business analysts, developers and quality analysts (often referred to as testers) amongst other roles. Each person assigned to a role is usually accountable for a specific part of the process. In this setup, you often see story walls containing lanes like "In Dev" and "In QA." </p><blockquote><p>“There is no value in a story that is “Dev Done” or waiting for dev. “</p></blockquote><p>These distinct roles are often used synonymously to determine the handoff criteria for each of the lanes. So when we say that a story is "Dev Done," we usually mean that: </p><ol><li>The unit and integration tests have been implemented.</li><li>All the acceptance criteria are fulfilled. </li><li>The CI environment is green and healthy with all the tests running.</li><li>Good practices like refactoring and code reviews have been performed.</li><li>All the other parts of the application are behaving just as before.</li><li>The cross-functional requirements have been implemented.</li><li>The desk check has been done with the BAs and QAs.</li></ol><p>With all these requirements fulfilled and with the feature working on the developer’s own machine, the developer is happy to move the story forward for the testers do their job. So, when the story goes to "In QA," it often means that:</p><ol><li>The acceptance criteria need to be reviewed with manual exploratory testing.</li><li>The UI testing needs to be implemented.</li><li>XBrowser testing with the major of browsers needs to be performed.</li><li>The bugs and possible requirement changes need to be reported.</li></ol><p>The developer is ready to go on to implementing the next story and will only revisit this story if the tester finds a bug or issue with the story that requires further development work. One issue with this is that if a bug is found, the developer will either need to interrupt the new story to fix it or the prior story will sit waiting for development until the new story is completed. This, as a whole, slows down the delivery of value. There is no value in a story that is “Dev Done” or waiting for dev. All these stories just create more work in progress as opposed to value delivered. To the end user, everything that is not yet released is still in development. A piece of functionality that hasn't been tested and validated by the final user has no business value. Therefore, a story isn’t done until it is released. When it’s in QA it’s still in the delivery cycle. Considering that, do we really need this "wall" separating development from quality assurance? Are they not both part of the development cycle?</p><p class="block-img"><img src="https://prismic-io.s3.amazonaws.com/p2-magazine/0a07d223e5ad9fb1bdad74c3f76213706e7341ae_story-wall-2.jpg" alt=""></p><h3>Taking down the wall</h3><p>Imagine that there is no longer a QA lane on your project and everything stays “In Dev” until it’s developed and tested. How would your team organize the work? Your first objections might be that you have less visibility into the detail of where the story is in your delivery cycle, or that it might stay too long in the same lane. You might think the solution is to break up the story into tasks. But if those tasks don’t deliver value to the end user sooner, the only benefit of this overhead is visibility into the process. Alternatively, if you work hard to make your stories as small as possible whilst also delivering business value, you get the benefit of visibility and value to the user.</p><p>But even with the wall and stories a small as possible, you might still get stories that spend too long in QA, especially if the developers on the team greatly outnumber the testers. Why?</p><h3>One role, different skill sets</h3><p><em>Work to rule:</em></p><p><em>In industries or situations where one is not allowed a full-blown strike, a work slowdown is often used as means of demonstration. Often this is called work to rule or malicious obedience, and the idea is that the employees do exactly what their job description calls for—no more, no less—and follow the rule book to the letter.</em></p><p><em>The result is massive delays and confusion—and an effective labor demonstration. No one with expertise in the real world follows the rules to the letter; doing so is demonstrably inefficient.<br></em><em><strong>—Andy Hunt, Pragmatic Thinking and Learning</strong></em><br></p><p>Think about this for a moment. Having people perform only the prescribed duties can be used as a form of strike to slow down work. Conversely, to improve the flow and speed of work done, people should take on whatever they need to to get a story to done. This includes developers performing QA responsibilities on a story. Team members shouldn't limit themselves to  what their job descriptions say. The consequences are silent inefficiency and work delays. It also causes segregation of duties instead of valuing skill sets regardless of the role you are assigned.</p><p>Independent of roles, some people might be better at writing code, performing cross-functional testing of CFRs, or have better skills performing exploratory testing, reviewing story acceptance criteria, facilitating sign-offs and providing support to the client. These should be brought to bear by the team regardless of assigned role.</p><h3>The new lane</h3><p>Although having “In Dev” and “In QA” lanes as phases of development might sound like a good idea to ensure that stories don't spend an eternity stuck in the same one lane, it imposes a very dangerous segregation on roles and their duties.</p><p><span class="blockquote">“What makes you a good developer or tester is not your ability to perform the description of your role to the letter, but your skill set and contribution to creating a quality product. “</span></p><p>Both developers and testers should have a wide skill set to participate actively in the entire development cycle, whether it is implementing the feature, working on a bug fix, automating tests, monitoring, performing exploratory manual testing or signing off on stories with the client.</p><p class="block-img"><img src="https://prismic-io.s3.amazonaws.com/p2-magazine/3c6a8e7629c958a272c1dadd543f89433a039092_luiza-and-lebo-pairing.jpg" alt=""></p><p>What makes you a good developer or tester is not your ability to perform the description of your role to the letter, but your skill set and contribution to creating a quality product. A good team is formed by a wide combination of these skills rather than each individual becoming proficient at one set of skills. The collective makeup of the team is what makes a team successful, not individual players sticking to their job descriptions.</p><p>But how does this play out in practice? Here's a list of actions that can make everyone accountable during the story development cycle and remove role segregation:</p><ol><li>Place all story activities in the "In Dev" lane.</li><li>Use a checklist to keep track of the work in progress. This checklist would include the tasks correspondent to the work that has to be done while developing and testing the user story.</li><li>The pair working on the story is accountable for all the activities.</li><li>QAs are part of the standard pair rotation.</li><li>Value individual skill sets over roles.</li><li>Ensure knowledge sharing throughout the whole process, by practicing the art of pairing across roles in several different situations within the project.</li></ol><p>The most important outcome of the new lane is that we are now using the competencies each team member has in order to deliver high-quality functionality to the client. Developers now understand and pay more attention to the business value of the feature being developed and are no longer just “code monkeys.” In the same way, testers are able to pay closer attention to coding practices, DevOps, UX and business analysis, and they can apply their risk-analysis skills to those areas. They are no longer just “testers” As a result, bottlenecks are removed sooner, and bugs are found earlier, leading to a development cycle that’s faster overall.</p><p><a href="http://info.thoughtworks.com/P2-Magazine-Subscription.html"><em>Sign up</em></a><em> to receive the latest edition of P2 Magazine.</em></p>
+				</div>
+
+				<aside class="left-column clearfix">
+					<div class="author">
+
+                    
+                        
+                        
+                        <div>
+                            <a href="#">
+                                <img class="author-avatar" src="https://prismic-io.s3.amazonaws.com/p2-magazine/b09abbec88f38214894ccf3a7cc0dfcf65fe728d_luiza.jpg" />
+                            </a>
+                            <div>Luiza Nunes</div>
+                            
+                                <a href="http://twitter.com/luhh_nunes">
+                                    @luhh_nunes
+                                </a>
+                            
+                        </div>
+                    
+				</aside>
+			</article>
+		</section>
+	</div>
+
+	<div id="bottom-pages">
+		<nav class="paginate">
+			
+				<a class="prev" href="../../issue12/iot/">◀</a>
+			
+
+			
+				<a class="next" href="../../issue12/gaming-your-security/">▶</a>
+			
+		</nav>
+	</div>
+<script>window.routerInfosForFile = {"src":"/article.html","dst":"/issue12/remove-in-qa/index.html","args":{"issueNum":"12","slug":"remove-in-qa"}};</script>
+</body>
+</html>

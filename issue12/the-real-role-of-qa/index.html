@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../../stylesheets/screen.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="../../assets/js/keymaster.min.js"></script>
+
+    <title>P2 Magazine | The Real Role of QA</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url" content="http://localhost:8282/issue12/the-real-role-of-qa/" />
+
+    <meta name="prismic-routing-pattern" content="/issue$issueNum/$slug">
+    <meta name="prismic-routing-param" content="slug">
+    <meta name="prismic-routing-param" content="issueNum">
+</head>
+
+<body class="wrapper">
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P97X8B"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-P97X8B');</script>
+	<!-- End Google Tag Manager -->
+
+	<nav class="paginate">
+		
+			<a id="prev" class="prev" href="../../issue12/iot/">◀</a>
+		
+
+		
+			<a id="next" class="next" href="../../issue12/lombok/">▶</a>
+		
+		<script>
+		key('left', function() {
+			window.open($("#prev")[0].href, '_self', false);
+		});
+		key('right', function(){
+			window.open($("#next")[0].href, '_self', false);
+        });
+		</script>
+	</nav>
+
+	<div class="container">
+		<section class="page">
+			<nav class="issues">
+				<ul class="clearfix">
+					<li class="active"><a href="../index/">Issue 12, December 2015</a></li>
+					<li class="pull-right">Page 3 / 9</li>
+				</ul>
+			</nav>
+
+			<article>
+				<header>
+					<h1>The Real Role of QA</h1>
+					
+						<h3>Removing the “In QA” lane from your story wall</h3>
+					
+
+					
+						<p class="byline">
+							Words and Music by
+							
+								
+							Luiza Nunes
+						</p>
+					
+				</header>
+				<div class="article-body">
+					<p><em>Work to rule:<br>In industries or situations where one is not allowed a full-blown strike, a work slowdown is often used as means of demonstration. Often this is called work to rule or malicious obedience, and the idea is that the employees do exactly what their job description calls for—no more, no less—and follow the rule book to the letter.</em></p><p><em>The result is massive delays and confusion—and an effective labor demonstration. No one with expertise in the real world follows the rules to the letter; doing so is demonstrably inefficient.<br>—Andy Hunt, </em><em><strong>Pragmatic Thinking and Learning</strong></em></p><p>Think about this for a moment. Having people perform only their prescribed duties can be used as a form of strike to slow down work. Conversely, to improve the flow and speed of work done, people take on whatever is needed to get that work done. So why do we so often “work to rule” when it comes to development and testing on many agile projects?</p><h3>Dev Done or QA Done?</h3><p>On an agile project, your team is often composed of business analysts, developers and quality analysts—often referred to as testers—amongst other roles. Each person assigned to a role is usually accountable for a specific part of the process. In this setup, you will see story walls containing “In Dev” and “In QA” lanes.</p><blockquote><p>“There is no value in a story that is "Dev Done" or "Waiting for Dev". </p></blockquote><p>These distinct roles are often used synonymously to determine the handoff criteria for each of the lanes. So, when we say that a story is “Dev Done,” we usually mean that the core development is done, but not the testing. It can also mean that the story only works on that developer’s machine. When the story goes to the “In QA” lane, the tester will begin acceptance testing and the developer will go on to implementing the next story, revisiting the prior story only if the tester finds a bug or issue that requires further development work. </p><p>One major issue with this is that if a bug is found, either the developer will need to interrupt the new story to fix it, or the prior story will sit waiting for development until the new story is completed. Either way, that developer now has two stories in the development phase, and with a whole team this often results in more stories “In Dev” than you have developers. This is a key indicator that something is wrong. You now have way too much work in progress (WIP) and very little value being delivered to your users. </p><p>To the end user, everything that is not yet released is still in development. So, what is the value of the wall between the two?</p><p class="block-img"><img src="https://prismic-io.s3.amazonaws.com/p2-magazine/0a07d223e5ad9fb1bdad74c3f76213706e7341ae_story-wall-2.jpg" alt=""></p><h3>Taking down the wall</h3><p>Although having “In Dev” and “In QA” lanes as phases of development might sound like a good idea to ensure that stories don’t spend an eternity stuck in the one lane, it imposes a very dangerous segregation on roles and their duties.</p><p>Common objections to removing the wall are that you have less visibility into the detail of where the story is in the delivery cycle, or that it might stay too long in the same lane. An often-imposed solution is to break up the story into tasks. But if those tasks don’t deliver value to the end user, the only benefit of this overhead is visibility into the process. Alternatively, if you work hard to make your stories as small as possible whilst also delivering business value, you get the benefit of visibility and value to the user, but that only solves a part of the problem.</p><blockquote><p>“What makes you a good developer or tester is not your ability to perform the description of your role to the letter, but your skill set and contribution to creating a quality product. “</p></blockquote><p>Often developers on the team greatly outnumber the testers. With or without the wall, testing can become a bottleneck, and this is often why stories will stay too long in the “In QA” lane. To overcome this, you need to remove roles and replace them with skills and capabilities. Independent of roles, some people will be better at writing code or performing cross-functional testing of CFRs, or have better skills performing exploratory testing. These should be brought to bear by the team regardless of assigned role. Quality Assurance should be the responsibility of everyone in the team, rather than having one role responsible for Quality Control. </p><h3>The new "In Dev" lane</h3><p>Quality Assurance over Quality Control is a lean principle that you can apply to your project. To be successful with this approach:</p><ul><li>Place all story activities in the “In Dev” lane.</li><li>Use a checklist to keep track of the work in progress. This checklist would include the tasks correspondent to the work that has to be done during development and testing of the user story.</li><li>Make the pair working on the story accountable for all the activities. </li><li>Include those assigned the QA role in the standard pair rotation.</li><li>Value individual skill sets over roles. </li><li>Ensure knowledge sharing throughout the whole process, by practicing the art of pairing across roles in several different situations within the project.</li></ul><p>Team members who limit themselves to their job descriptions cause silent inefficiencies and work delays. The most important outcome of the new lane is that we are now using the competencies of each team member to deliver high-quality functionality to the client. What makes good developers or testers is not their ability to perform the description of their roles to the letter, but their skill sets and contributions to creating a quality product. A good team is formed by a wide combination of these skills, rather than each individual becoming proficient at only those tasks defined by a role. </p><p>In this new world, developers understand and pay more attention to the business value of the feature being developed and are no longer just “code monkeys.” Conversely, testers are able to pay closer attention to coding practices, DevOps, UX and business analysis, and they can apply their risk-analysis skills to those areas. Everyone is now a quality analyst, and as a result, bottlenecks are removed sooner and bugs are found earlier, leading to a development cycle that’s faster overall. Who doesn’t want that?</p><p><a href="http://info.thoughtworks.com/P2-Magazine-Subscription.html"><em>Sign up</em></a><em> to receive the latest edition of P2 Magazine.</em></p>
+				</div>
+
+				<aside class="left-column clearfix">
+					<div class="author">
+
+                    
+                        
+                        
+                        <div>
+                            <a href="#">
+                                <img class="author-avatar" src="https://prismic-io.s3.amazonaws.com/p2-magazine/b09abbec88f38214894ccf3a7cc0dfcf65fe728d_luiza.jpg" />
+                            </a>
+                            <div>Luiza Nunes</div>
+                            
+                                <a href="http://twitter.com/luhh_nunes">
+                                    @luhh_nunes
+                                </a>
+                            
+                        </div>
+                    
+				</aside>
+			</article>
+		</section>
+	</div>
+
+	<div id="bottom-pages">
+		<nav class="paginate">
+			
+				<a class="prev" href="../../issue12/iot/">◀</a>
+			
+
+			
+				<a class="next" href="../../issue12/lombok/">▶</a>
+			
+		</nav>
+	</div>
+<script>window.routerInfosForFile = {"src":"/article.html","dst":"/issue12/the-real-role-of-qa/index.html","args":{"issueNum":"12","slug":"the-real-role-of-qa"}};</script>
+</body>
+</html>
